@@ -1,0 +1,10 @@
+.bundle
+db/*.sqlite3
+log/*.log
+tmp/
+.sass-cache/
+public/assets/
+config/mongoid.yml
+config/config.yml
+Gemfile.lock
+.DS_Store
