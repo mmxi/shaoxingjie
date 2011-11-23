@@ -10,6 +10,8 @@ gem 'carrierwave-mongoid', '0.1.3', :require => 'carrierwave/mongoid'
 gem 'mini_magick', '3.3'
 gem 'settingslogic', '~> 2.0.6'
 gem 'haml-rails', '~> 0.3.4'
+gem 'execjs'
+gem 'therubyracer'
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.4'
