@@ -22,7 +22,3 @@ end
 group :development do
   gem 'capistrano'
 end
-
-group :test do
-  gem 'turn', :require => false
-end
