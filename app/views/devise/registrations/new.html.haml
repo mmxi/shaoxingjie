@@ -1,0 +1,13 @@
+%h2 用户注册
+
+= simple_form_for resource, :as => resource_name, :url => registration_path(resource_name), :wrapper => :inline do |f|
+  = f.input :name
+  = f.input :email, :placeholder => "test@example.com"
+  = f.input :password
+  = f.input :password_confirmation
+  .actions
+    = button_tag '注册', :type => :submit, :class => "primary btn"
+
+- content_for :sidebar do
+  %h3 已经拥有帐号
+  = link_to "登录", user_session_path

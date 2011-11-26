@@ -1,0 +1,13 @@
+.topbar
+  .topbar-inner
+    .container-fluid
+      = link_to Setting.app_name, root_path, :class => "brand"
+      %ul.nav
+        %li{:class => "active"}= link_to "论坛", root_path
+      %ul.nav.secondary-nav
+        - if user_signed_in?
+          %li= link_to "退出", destroy_user_session_path, :method => :delete
+        - else
+          %li= link_to "注册", new_user_registration_path
+          %li= link_to "登录", user_session_path
+        

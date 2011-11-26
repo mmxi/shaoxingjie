@@ -1,0 +1,20 @@
+%h2= "登录" + Setting.app_name
+
+= simple_form_for resource, :as => resource_name, :url => session_path(resource_name),:wrapper => :inline do |f|
+  = f.input :email
+  = f.input :password
+  - if devise_mapping.rememberable?
+    = f.input :remember_me, :label => false do
+      =content_tag :div, :class => "inputs-list" do
+        = content_tag :label do
+          = check_box_tag :remember_me
+          记住我
+  .actions
+    = button_tag '登录', :type => :submit, :class => "primary btn"
+
+- content_for :sidebar do
+  %h3 你还没有帐号
+  %p
+    = link_to "注册", new_user_registration_path
+  %p
+    = link_to "忘记了密码?", new_user_password_path

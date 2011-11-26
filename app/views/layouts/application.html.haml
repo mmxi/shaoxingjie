@@ -1,0 +1,25 @@
+!!!
+%html
+  %head
+    %title=  @page_title ? (@page_title + ' - ' + Setting.app_name) : Setting.app_name
+    %meta{:content => @meta_keywords, :name => "keywords"}
+    %meta{:content => @meta_description, :name => "description"}
+    = stylesheet_link_tag "application"
+    = yield :css
+    = javascript_include_tag "application"
+    = yield :js
+    = csrf_meta_tag
+  %body
+    = render :partial => "shared/topbar"
+    .container
+      .container-fluid
+        .content
+          .box
+            = yield
+        .sidebar
+          .box
+            = yield :sidebar
+    %footer
+      .container
+        %p
+          copyright 2011
