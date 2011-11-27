@@ -1,4 +1,4 @@
-.topbar
+.topbar{"data-dropdown" => "dropdown"}
   .topbar-inner
     .container-fluid
       = link_to Setting.app_name, root_path, :class => "brand"
@@ -6,7 +6,13 @@
         %li{:class => "active"}= link_to "论坛", root_path
       %ul.nav.secondary-nav
         - if user_signed_in?
-          %li= link_to "退出", destroy_user_session_path, :method => :delete
+          %li.menu
+            %a{:class => "menu avatar"}
+              = image_tag current_user.avatar_url(:s48), :width => 24, :height => 24
+              %span= current_user.name
+            %ul.menu-dropdown
+              %li= link_to "编辑个人资料", edit_user_registration_path
+              %li= link_to "退出", destroy_user_session_path, :method => :delete
         - else
           %li= link_to "注册", new_user_registration_path
           %li= link_to "登录", user_session_path

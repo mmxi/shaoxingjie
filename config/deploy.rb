@@ -33,7 +33,7 @@ set :default_environment, {
 
 after "deploy", "deploy:bundle_gems"
 after "deploy:bundle_gems", "deploy:link_shared_config_yaml"
-after "deploy:bundle_gems", "deploy:compile_assets"
+#after "deploy:bundle_gems", "deploy:compile_assets"
 #after "deploy:compile_assets", "deploy:restart"
 # If you are using Passenger mod_rails uncomment this:
 #bundle install vendor/gems
@@ -46,7 +46,7 @@ namespace :deploy do
     run "ln -sf #{deploy_to}/shared/config/*.yml #{deploy_to}/current/config/"
   end
 
-  task :compile_assets do
-    run "cd #{deploy_to}/current && bundle exec rake assets:precompile"
-  end
+#  task :compile_assets do
+#    run "cd #{deploy_to}/current && bundle exec rake assets:precompile"
+#  end
 end

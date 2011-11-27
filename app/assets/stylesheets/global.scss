@@ -8,3 +8,7 @@ body{padding-top:60px; background:#EEEEEE;}
   margin: 0 0 20px;
   padding: 10px;
 }
+.topbar .avatar{padding:8px 10px; line-height:24px; height:24px; cursor:pointer;
+  *{float:left;}
+  span{display:inline-block;margin-left:10px;}
+}
