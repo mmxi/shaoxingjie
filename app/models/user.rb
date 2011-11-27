@@ -6,7 +6,9 @@ class User
          :recoverable, :rememberable, :trackable, :validatable
 
   field :name
+  field :avatar
+  mount_uploader :avatar, AvatarUploader
   validates_presence_of :name
   validates_uniqueness_of :name, :email, :case_sensitive => false
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :name, :email, :password, :password_confirmation, :remember_me, :avatar
 end
