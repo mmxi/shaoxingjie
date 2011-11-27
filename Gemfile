@@ -11,6 +11,8 @@ gem 'mini_magick', '3.3'
 gem 'settingslogic', '~> 2.0.6'
 gem 'haml-rails', '~> 0.3.4'
 gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git'
+gem 'execjs'
+gem 'therubyracer'
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.4'
