@@ -232,3 +232,5 @@ zh-CN:
         password: 密码
         password_confirmation: 确认密码
         remember_me: 记住我
+        avatar: 头像
+        current_password: 当前密码
