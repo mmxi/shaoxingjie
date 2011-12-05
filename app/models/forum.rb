@@ -4,8 +4,11 @@ class Forum
   field :name
   field :description
   field :sort, :type => Integer, :default => 0
+  field :topics_count, :type => Integer, :default => 0
   field :picture
   auto_increment :num
+
+  has_many :topics
 
   validates_presence_of :name
   validates_uniqueness_of :name
