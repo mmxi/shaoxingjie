@@ -1,0 +1,7 @@
+= simple_form_for  [:admin, @forum], :wrapper => :inline do |f|
+  = f.input :name
+  = f.input :description
+  = f.input :sort
+  .actions
+    = f.submit :class => "primary btn"
+    = link_to "返回", admin_forums_path, :class => "btn"

@@ -1,0 +1,22 @@
+%h2 版块列表
+
+= render "shared/flash_message"
+
+%table
+  %thead
+    %tr
+      %th #
+      %th 名称
+      %th 顺序
+      %th
+  %tbody
+    - @forums.each do |forum|
+      %tr
+        %td= forum.num
+        %td= forum.name
+        %td= forum.sort
+        %td
+          = link_to "编辑", edit_admin_forum_path(forum), :class => "btn"
+          = link_to "删除", admin_forum_path(forum), :class => "danger btn", :method => :delete, :confirm => "你确定?"
+
+= link_to "新增版块", new_admin_forum_path, :class => "primary btn"

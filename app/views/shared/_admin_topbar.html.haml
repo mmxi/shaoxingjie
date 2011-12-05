@@ -3,7 +3,8 @@
     .container
       = link_to Setting.app_name, root_path, :class => "brand"
       %ul.nav
-        %li{:class => "active"}= link_to "社区", forums_path
+        %li= link_to "前台", root_path
+        %li{:class => ("active" if controller.class == Admin::ForumsController)}= link_to "版块", admin_forums_path
       %ul.nav.secondary-nav
         - if user_signed_in?
           %li.menu
@@ -16,4 +17,3 @@
         - else
           %li= link_to "注册", new_user_registration_path
           %li= link_to "登录", user_session_path
-        

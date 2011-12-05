@@ -7,6 +7,7 @@ class User
 
   field :name
   field :avatar
+  embeds_many :roles
   mount_uploader :avatar, AvatarUploader
   validates_presence_of :name
   validates_uniqueness_of :name, :email, :case_sensitive => false
@@ -15,5 +16,9 @@ class User
   def update_with_password(params={})
     params.delete(:current_password)
     self.update_without_password(params)
+  end
+
+  def role?(role)
+    return !!self.roles.where({"name" => /#{role.to_s}/}).first
   end
 end

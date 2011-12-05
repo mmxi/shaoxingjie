@@ -1,4 +1,8 @@
 body{padding-top:60px; background:#EEEEEE;}
+.container .content{background:#fff; padding:20px;
+  .main{border-right:1px solid #EEE; padding-right:19px;}
+  .sidebar{margin-left:20px;}
+}
 .container-fluid > .content{margin-left:0px; margin-right: 240px;}
 .container-fluid > .sidebar{right: 0px; left:auto;}
 .box{

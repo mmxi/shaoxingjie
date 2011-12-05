@@ -10,16 +10,15 @@
     = yield :js
     = csrf_meta_tag
   %body
-    = render :partial => "shared/topbar"
+    = render :partial => "shared/admin_topbar"
     .container
       = yield :breadcrumb
       .content
         .row
-          .span11.main
+          .span15
             = yield
-          .span4.sidebar
-            = yield :sidebar
     %footer
       .container
         %p
           copyright 2011
+

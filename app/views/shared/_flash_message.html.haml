@@ -1,0 +1,4 @@
+- unless flash[:notice].blank?
+  .alert-message.success
+    %a{:class => "close", :href => "#"} ×
+    %p= flash[:notice]

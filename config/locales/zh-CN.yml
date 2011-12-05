@@ -225,6 +225,8 @@ zh-CN:
       update: "更新%{model}"
       submit: "储存%{model}"
   mongoid:
+    models:
+      forum: 版块
     attributes:
       user:
         name: 用户名
@@ -234,3 +236,11 @@ zh-CN:
         remember_me: 记住我
         avatar: 头像
         current_password: 当前密码
+      forum:
+        name: 版块名
+        description: 版块描述
+        sort: 顺序
+        picture: 图片
+  breadcrumbs:
+    home: 首页
+    forum: 社区
