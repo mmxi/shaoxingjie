@@ -1,0 +1,66 @@
+@import "compass/utilities/general/min";
+
+li.menu, .dropdown { position: relative; 
+  &.open {
+    .dropdown-menu, .menu-dropdown { display: block; }
+  }
+  a.dropdown-toggle{
+    &:hover { background: #393939; }
+  }
+  a.dropdown-toggle b{
+    position: absolute;
+    top: 17px;
+    right: 0px;
+    display: block;
+    border: 0 solid blue;
+    border-width: 4px 4px 0;
+    border-color:#9a9a9a transparent;
+    _border-color:#9a9a9a red;
+    _filter: chroma(color="red");
+    width:0;
+    height:0;
+    font-size: 0;
+    overflow:hidden;
+  }
+}
+.topbar .dropdown-menu, .topbar .menu-dropdown {
+  display: none;
+  background: #333;
+  border-radius: 0 0 6px 6px;
+  float: left;
+  margin-left: 0;
+  margin-right: 0;
+  @include min-width(90px);
+  padding: 6px 0;
+  position: absolute;
+  top: 40px;
+  left: 0;
+  z-index: 900;
+  li {
+    display: block;
+    width: 100%;
+    float: none;
+    overflow:hidden;
+    line-height:0px;
+    font-size:0px;
+    &.divider {
+      display: block;
+      height: 1px;
+      line-height: 1px;
+      font-size: 1px;
+      width: 100%;
+      background-color: #222222;
+      border-bottom: 1px solid #444444;
+      height: 1px;
+      margin: 5px 0;
+      overflow: hidden;
+    }
+    a {
+      color: #999;
+      font-size: 14px;
+      padding: 4px 15px;
+			white-space:nowrap;
+      &:hover { background: #191919; }
+    }
+  }
+}

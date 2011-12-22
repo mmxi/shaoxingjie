@@ -20,6 +20,6 @@ class Forum
   end
 
   def self.find_by_num(num)
-    Forum.where(num: num).first
+    Forum.first(conditions: { num: num })
   end
 end

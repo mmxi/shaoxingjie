@@ -1,0 +1,12 @@
+- content_for :breadcrumb do
+  = render_bcs
+
+%h2
+  = "#{Setting.app_name}社区"
+  %small 畅所欲言
+
+.topics
+  = render @topics
+
+- content_for :sidebar do
+  = link_to "发帖", new_topic_path, :class => "btn success_2"

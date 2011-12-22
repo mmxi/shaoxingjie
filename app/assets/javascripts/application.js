@@ -8,4 +8,5 @@
 //= require bootstrap-popover
 //= require bootstrap-scrollspy
 //= require bootstrap-tabs
+//= require jquery.timeago
 //= require base

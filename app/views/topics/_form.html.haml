@@ -1,0 +1,17 @@
+= simple_form_for @topic, :wrapper => :inline do |f|
+  - if params[:forum_id]
+    = f.input :title do
+      = content_tag :span, :class => "span3", :style => "display:none;" do
+        = f.input_field :forum_id, :collection => Forum.all.map { |r| [r.name, r.num] }, :selected => params[:forum_id], :label => false
+      = f.input_field :title, :class => "span10 input_text"
+  - else
+    = f.input :title do
+      = content_tag :span, :class => "span3" do
+        = f.input_field :forum_id, :collection => Forum.all.map { |r| [r.name, r.num] }, :selected => params[:forum_id], :label => false
+      = content_tag :span, :class => "span7" do
+        = f.input_field :title, :class => "input_text"
+
+  = f.input :body, :as => :text, :input_html => {:class => "span10", :rows => 15}
+  .actions
+    = f.submit :class => "submit"
+    = link_to "返回", topics_path, :class => "btn btn_2"

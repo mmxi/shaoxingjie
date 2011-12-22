@@ -1,0 +1,17 @@
+.topic{:id => "topic_#{topic.num}"}
+  .topic-avatar= image_tag topic.user.avatar_url(:s48), :width => 48, :height => 48
+  .topic-content
+    .topic-row.topic-text
+      = link_to topic.title, topic_path(topic)
+    .topic-row
+      = link_to topic.forum.name, tforum_path(topic.forum), :class => "label_notice"
+      %span •
+      %small= "#{topic.hits}次点击"
+      %span •
+      %small= "发布时间"
+      %small= timeago(topic.created_at)
+      %span •
+      %small= "发布人"
+      = link_to topic.user.name, user_path(topic.user), :class => "label"
+      %span •
+      %small= "最后回复人"

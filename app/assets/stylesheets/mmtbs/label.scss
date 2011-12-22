@@ -1,0 +1,28 @@
+@import "compass/css3";
+.label{
+  display: inline-block;
+  padding: 1px 3px 2px 3px;
+  white-space: nowrap;
+  color: #fff;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: bold;
+  @include border-radius(3px);
+  background: #BFBFBF;
+}
+.label_success {
+	@extend .label;
+	background: #46A546;
+}
+.label_warning {
+	@extend .label;
+	background: #F89406;
+}
+.label_important {
+	@extend .label;
+	background: #C43C35;
+}
+.label_notice {
+	@extend .label;
+	background: #62CFFC;
+}

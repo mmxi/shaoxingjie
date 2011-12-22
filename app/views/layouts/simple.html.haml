@@ -1,0 +1,25 @@
+!!!
+%html
+  %head
+    %title=  @page_title ? (@page_title + ' - ' + Setting.app_name) : Setting.app_name
+    %meta{:content => @meta_keywords, :name => "keywords"}
+    %meta{:content => @meta_description, :name => "description"}
+    = stylesheet_link_tag "base"
+    = yield :css
+    = javascript_include_tag "application"
+    = yield :js
+    /[if IE 6]
+      = javascript_include_tag "jquery.ie6hover.js"
+      :javascript
+        $(document).ready(function(){$.ie6hover();});
+    = csrf_meta_tag
+  %body
+    = render :partial => "shared/topbar"
+    .container
+      = yield :breadcrumb
+      .content.box
+        .p20
+        #main{:style => "width:940px;"}
+          = yield
+        .p20
+    = render "shared/footer"

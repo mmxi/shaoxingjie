@@ -227,6 +227,7 @@ zh-CN:
   mongoid:
     models:
       forum: 版块
+      topic: 帖子
     attributes:
       user:
         name: 用户名
@@ -241,6 +242,9 @@ zh-CN:
         description: 版块描述
         sort: 顺序
         picture: 图片
+      topic:
+        title: 标题
+        body: 内容
   breadcrumbs:
     home: 首页
     forum: 社区

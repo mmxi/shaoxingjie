@@ -16,6 +16,7 @@ gem 'therubyracer'
 gem 'cancan', '~> 1.6.7'
 gem 'breadcrumbs_on_rails', '~> 2.1.0'
 gem 'mongoid_auto_inc', '~> 0.0.4'
+gem 'compass-960-plugin', :require => 'ninesixty'
 
 group :assets do
   gem 'sass-rails',   '~> 3.1.4'

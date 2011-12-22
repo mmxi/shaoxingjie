@@ -8,18 +8,20 @@
     = yield :css
     = javascript_include_tag "application"
     = yield :js
+    /[if IE 6]
+      = javascript_include_tag "jquery.ie6hover.js"
+      :javascript
+        $(document).ready(function(){$.ie6hover();});
     = csrf_meta_tag
   %body
     = render :partial => "shared/topbar"
     .container
       = yield :breadcrumb
-      .content
-        .row
-          .span11.main
-            = yield
-          .span4.sidebar
-            = yield :sidebar
-    %footer
-      .container
-        %p
-          copyright 2011
+      .content.box
+        .p20
+        #main{:style => "margin-right:9px;"}
+          = yield
+        #sidebar
+          = yield :sidebar
+        .p20
+    = render "shared/footer"

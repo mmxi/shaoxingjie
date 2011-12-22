@@ -8,6 +8,7 @@
       %th #
       %th 名称
       %th 顺序
+      %th 帖子数量
       %th
   %tbody
     - @forums.each do |forum|
@@ -15,6 +16,7 @@
         %td= forum.num
         %td= forum.name
         %td= forum.sort
+        %td= forum.topics_count
         %td
           = link_to "编辑", edit_admin_forum_path(forum), :class => "btn"
           = link_to "删除", admin_forum_path(forum), :class => "danger btn", :method => :delete, :confirm => "你确定?"

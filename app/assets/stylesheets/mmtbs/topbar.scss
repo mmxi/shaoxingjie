@@ -1,0 +1,62 @@
+@import "topbar/topbar_*.png";
+
+.topbar {
+  height: 40px;
+  position: fixed;
+  _position: absolute;
+  _top: expression(documentElement.scrollTop + 0 + "px");
+  top: 0; left: 0; right: 0;  
+  z-index: 2;
+  .topbar-inner, .fill {
+    @include topbar-sprite(topbar_bg);
+    background-repeat: repeat-x;
+  }
+  h3 a, .brand {
+    display: block;
+    float: left;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 8px 20px 12px 20px;
+    color: #fff;
+  }
+  .logo {
+    display: block;
+    float: left;
+    font-size: 20px;
+    width: 100px;
+    height: 40px;
+    text-indent: -1000em;
+    overflow: hidden;
+    cursor: pointer;
+    @include topbar-sprite(topbar_logo);
+    &:hover {@include topbar-sprite(topbar_logo_h);}
+  }
+  ul, .nav {
+    display: block;
+    float: left;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    &.secondary-nav {
+      float: right;
+      margin-left: 10px;
+      margin-right: 0;      
+    }
+    li {
+      display: block;
+      float: left;
+      &.active {
+        background: #181818;
+        a { color: #fff; }
+      }
+      a {
+        display: block;
+        line-height: 19px;
+        font-size: 14px;
+        padding: 10px 10px 11px 10px;
+        color: #BFBFBF;
+        &:hover { color: #fff; }
+      }
+    }
+  }
+}

@@ -7,7 +7,11 @@ class User
 
   field :name
   field :avatar
+  field :topics_count, :type => Integer, :default => 0
+
   embeds_many :roles
+  has_many :topics
+
   mount_uploader :avatar, AvatarUploader
   validates_presence_of :name
   validates_uniqueness_of :name, :email, :case_sensitive => false

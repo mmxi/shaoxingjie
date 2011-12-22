@@ -1,19 +1,21 @@
 .topbar{"data-dropdown" => "dropdown"}
   .topbar-inner
     .container
-      = link_to Setting.app_name, root_path, :class => "brand"
+      = link_to Setting.app_name, root_path, :class => "logo"
       %ul.nav
-        %li{:class => "active"}= link_to "社区", forums_path
+        %li{:class => "active"}= link_to "社区", topics_path
       %ul.nav.secondary-nav
         - if user_signed_in?
-          %li.menu
-            %a{:class => "menu avatar"}
-              = image_tag current_user.avatar_url(:s48), :width => 24, :height => 24
+          %li.dropdown
+            %a{:class => "dropdown-toggle avatar"}
+              %span{:style => "padding-top:8px;"}= image_tag current_user.avatar_url(:s48), :width => 24, :height => 24
               %span= current_user.name
+              %b
             %ul.menu-dropdown
               %li= link_to "帐号设置", edit_user_registration_path
               - if current_user.role? :admin
                 %li= link_to "后台", admin_root_path
+              %li.divider
               %li= link_to "退出", destroy_user_session_path, :method => :delete
         - else
           %li= link_to "注册", new_user_registration_path
