@@ -25,4 +25,8 @@ class Topic
   def to_param
     num.to_s
   end
+
+  def self.find_by_num(num)
+    Topic.first(conditions: { num: num })
+  end
 end

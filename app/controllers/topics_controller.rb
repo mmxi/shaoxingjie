@@ -5,7 +5,11 @@ class TopicsController < ApplicationController
   add_breadcrumb I18n.t("breadcrumbs.forum"), :topics_path
 
   def index
-    @topics = Topic.limit(50)#.includes(:forum, :user)
+    @topics = Topic.limit(50).includes(:forum, :user).desc(:created_at)
+  end
+
+  def show
+    @topic = Topic.find_by_num(params[:id])
   end
 
   def new

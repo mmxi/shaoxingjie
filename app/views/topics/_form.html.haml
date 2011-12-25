@@ -1,15 +1,15 @@
 = simple_form_for @topic, :wrapper => :inline do |f|
   - if params[:forum_id]
     = f.input :title do
-      = content_tag :span, :class => "span3", :style => "display:none;" do
-        = f.input_field :forum_id, :collection => Forum.all.map { |r| [r.name, r.num] }, :selected => params[:forum_id], :label => false
+      = content_tag :span, :style => "display:none;" do
+        = f.input_field :forum_id, :collection => Forum.all.map { |r| [r.name, r.num] }, :selected => params[:forum_id], :label => false, :input_html => {:class => "span2"}
       = f.input_field :title, :class => "span10 input_text"
   - else
     = f.input :title do
       = content_tag :span, :class => "span3" do
-        = f.input_field :forum_id, :collection => Forum.all.map { |r| [r.name, r.num] }, :selected => params[:forum_id], :label => false
+        = f.input_field :forum_id, :collection => Forum.all.map { |r| [r.name, r.num] }, :selected => params[:forum_id], :label => false, :class => "span2"
       = content_tag :span, :class => "span7" do
-        = f.input_field :title, :class => "input_text"
+        = f.input_field :title, :class => "input_text span8"
 
   = f.input :body, :as => :text, :input_html => {:class => "span10", :rows => 15}
   .actions

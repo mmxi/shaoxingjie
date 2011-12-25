@@ -135,7 +135,7 @@ textarea {
 	margin-right:10px;
 }
 
-input {
+input, select, textarea {
 	&.span1 { @extend .span; width: 30px; }
 	&.span2 { @extend .span; width: 90px; }
 	&.span3 { @extend .span; width: 150px; }
