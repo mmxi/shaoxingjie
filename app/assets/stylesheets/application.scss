@@ -1,0 +1,103 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require twitter/bootstrap
+ *= require_self
+ *= require_tree .
+*/
+@import "960/grid";
+@import "compass/css3";
+
+$ninesixty-columns: 16;
+.container_12 {
+  @include grid-system(12);
+}
+  
+.container_16 {
+  @include grid-system(16);
+}
+
+.container {
+  @include grid-system(16);
+}
+
+.container_980 {
+  @include grid-system(16);
+  width: 980px;
+}
+  
+
+html, body {
+	background: #eee url(body_bg2.gif) repeat 0 0;
+}
+
+body {
+	padding-top: 60px;
+}
+
+.content {
+	padding: 20px 10px;
+	background: #fff;
+	margin-bottom: 20px;
+}
+
+.topbar .dropdown-toggle {
+  cursor: pointer;
+}
+
+#footer {
+  text-align: center;
+  font-size: 14px;
+}
+
+.collection_container {
+  padding-top: 5px;
+}
+.collection_container span {
+  margin-right: 10px;
+}
+.simple_form label.collection_radio, .simple_form label.collection_check_box {
+  float: none;
+  display: inline;
+}
+
+.clearfix:before, .clearfix:after {
+  display: block;
+  content: "";
+  zoom: 1;
+  clear: both;
+}
+
+.ui-dialog {
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  @include border-radius(6px);
+  @include box-shadow(0 3px 7px rgba(0, 0, 0, 0.3));
+  @include background-clip(padding-box);
+}
+
+.ui-dialog-titlebar {
+  border-bottom: 1px solid #eee;
+  padding: 5px 15px;
+}
+
+.ui-dialog-titlebar-close {
+  float: right;
+  color: #000000;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 13.5px;
+  text-shadow: 0 1px 0 #ffffff;
+  @include opacity(0.25);
+}
+
+.ui-dialog-titlebar-close:hover {
+  color: #000000;
+  text-decoration: none;
+  @include opacity(0.4);
+}
+
+.ui-dialog-content {
+  padding: 15px;
+}

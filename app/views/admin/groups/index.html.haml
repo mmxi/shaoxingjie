@@ -1,0 +1,41 @@
+%h2
+  小组列表
+  = link_to "添加小组", new_admin_group_path, :class => "btn success pull-right"
+
+= form_tag q_admin_groups_path, :method => 'get', :id => "admin_group_search_form" do
+  = text_field_tag :keyword, params[:keyword], :class => "span7"
+
+= render "shared/flash_message"
+
+%table
+  %thead
+    %tr
+      %th 名称
+      %th 审核状态
+      %th 允许加入
+      %th 成员数量
+      %th 帖子数量
+      %th 操作
+  %tbody
+    - @groups.each do |group|
+      %tr
+        %td
+          = image_tag group.picture_url(:s16)
+          = group.title
+        %td
+          - if group.verified
+            %span.label.success 通过
+          - else
+            %span.label 审核中
+        %td
+          - if group.allowadduser
+            %span.label.success yes
+          - else
+            %span.label no
+        %td= group.members_count
+        %td= group.topics_count
+        %td
+          = link_to "编辑", edit_admin_group_path(group), :class => "btn"
+          = link_to "删除", admin_group_path(group), :class => "btn", :method => :delete, :confirm => "你确定?"
+
+= paginate @groups

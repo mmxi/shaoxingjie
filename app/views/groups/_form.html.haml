@@ -1,0 +1,6 @@
+= simple_form_for @group, :wrapper => :inline do |f|
+  = f.input :title, :input_html => {:class => "span7"}
+  = f.input :introduction, :as => :text, :input_html => {:rows => 8, :class => "span7"}
+  .actions
+    = f.submit :class => "btn primary"
+    = link_to "返回", groups_path, :class => "btn"

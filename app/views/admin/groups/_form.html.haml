@@ -1,0 +1,14 @@
+= simple_form_for [:admin, @group], :wrapper => :inline, :html => {:multipart => true} do |f|
+  = f.input :title, :input_html => {:class => "span7"}
+  = f.input :introduction, :as => :text, :input_html => {:rows => 8, :class => "span7"}
+  = f.input :picture, :label => false do
+    = image_tag @group.picture_url(:s48)
+  = f.input :picture, :hint => "最好48x48尺寸"
+  = f.input :verified do
+    .collection_container= f.collection_radio :verified, [[true, '通过'] ,[false, '不通过']], :first, :last
+  = f.input :allowadduser do
+    .collection_container= f.collection_radio :allowadduser, [[true, '允许'] ,[false, '不允许']], :first, :last
+  = f.input :tags, :input_html => {:class => "span10", "data-seperator" => ","}, :hint => "标签之间用英文逗号(,)隔开"
+  .actions
+    = f.submit :class => "btn primary"
+    = link_to "返回", admin_groups_path, :class => "btn"

@@ -11,12 +11,9 @@
     = csrf_meta_tag
   %body
     = render :partial => "shared/admin_topbar"
-    .container
+    .container_980
       = yield :breadcrumb
-      .content
+    .container.content
+      #main.grid_16
         = yield
-    %footer
-      .container
-        %p
-          copyright 2011
-
+    = render "shared/footer"

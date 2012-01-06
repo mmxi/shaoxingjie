@@ -1,0 +1,15 @@
+.group
+  .group-img
+    = link_to image_tag(group.picture_url(:s48)), group
+    - if !group.verified
+      %span.label 审核中
+    - elsif !group.allowadduser
+      %span.label 禁止加入
+    - else
+      = link_to "+加入", join_group_path(group), :class => "label success", :remote => true
+  .group-desc
+    %p
+      = link_to group.title, group
+      = "(#{group.members_count})"
+      %br
+      = truncate group.introduction, :length => 39,  :omission => "..."

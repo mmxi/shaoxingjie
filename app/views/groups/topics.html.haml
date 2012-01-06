@@ -1,0 +1,27 @@
+- content_for :breadcrumb do
+  = render_bcs
+
+- if user_signed_in?
+  %ul.tabs
+    %li{:class => ("active" if action_name == "index")}= link_to "全部小组", groups_path
+    %li{:class => ("active" if action_name == "topics")}= link_to "最新帖子", topics_path
+- else
+  %h5 全部小组
+  
+.topics
+  = render @topics
+      
+  
+- content_for :sidebar do
+  - if user_signed_in?
+    %h5
+      我的小组
+      %small
+        = link_to "全部", my_group_groups_path
+    - current_user.member_of.limit(10).desc(:topics_count).each do |group|
+      %p
+        = image_tag group.picture_url(:s16)
+        = link_to group.title, group
+        = "(#{group.topics_count})"
+    %p= link_to "创建小组", new_group_path
+    %p= link_to "全部小组", groups_path

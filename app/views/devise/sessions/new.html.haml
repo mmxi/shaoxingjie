@@ -1,17 +1,17 @@
 %h2= "登录" + Setting.app_name
 
 = simple_form_for resource, :as => resource_name, :url => session_path(resource_name),:wrapper => :inline, :html => {:class => "new_session"} do |f|
-  = f.input :email, :input_html => {:class => "input_text"}
-  = f.input :password, :input_html => {:class => "input_text"}
+  = f.input :email
+  = f.input :password
   - if devise_mapping.rememberable?
     = f.input :remember_me, :label => false do
       =content_tag :ul, :class => "inputs-list" do
         = content_tag :li do
-          = check_box_tag :remember_me, 1, false, :class => "input_checkbox"
           = content_tag :label do
-            记住我
+            = check_box_tag :remember_me, 1, false
+            %span 记住我
   .actions
-    = f.submit :class => "btn submit"
+    = f.submit "登录", :id => "loginbtn", :class => "btn primary", "data-disable-with" => "正在登录..." 
 
 - content_for :sidebar do
   %h3 你还没有帐号

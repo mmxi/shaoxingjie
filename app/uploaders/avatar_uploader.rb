@@ -6,17 +6,21 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
-  storage :grid_fs
+  storage :file
   process :convert => 'png'
 
   def store_dir
-    "#{model.class.to_s.underscore}"
+    "uploads/#{model.class.to_s.underscore}/#{model.id}"
   end
 
   def default_url
-      "/avatar/" + [version_name, "default.png"].compact.join('_')
+      "/default/avatar/" + [version_name, "default.png"].compact.join('_')
   end
 
+  version :s32 do
+    process :resize_to_fit => [32, 32]
+  end
+  
   version :s48 do
     process :resize_to_fit => [48, 48]
   end
@@ -34,10 +38,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   def filename
-    if original_filename 
-      @name ||= Digest::MD5.hexdigest(File.dirname(current_path))
-      "#{@name}.#{file.extension}"
-    end
+    "pic.#{file.extension}" if original_filename
   end
 
 end

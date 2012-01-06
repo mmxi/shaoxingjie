@@ -1,0 +1,12 @@
+$('#notice-message').remove();
+<% if @group and user_signed_in? %>
+  <% if current_user.is_member_of?(@group) %>
+	dialog_message("你已经加入该小组，请不要再次加入^_^");
+  <% else %>
+  	<% current_user.become_member_of(@group) %>
+  	dialog_message("加入小组成功^_^");
+  	setTimeout(function(){location.reload()}, 2000);
+  <% end %>
+<% else %>
+  dialog_message('你还没有登录^_^，<%= link_to "登录", new_user_session_path %>或者<%= link_to "注册", new_user_registration_path %>');
+<% end %>

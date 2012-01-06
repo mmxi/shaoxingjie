@@ -228,6 +228,8 @@ zh-CN:
     models:
       forum: 版块
       topic: 帖子
+      user: 用户
+      group: 小组
     attributes:
       user:
         name: 用户名
@@ -245,6 +247,25 @@ zh-CN:
       topic:
         title: 标题
         body: 内容
+        category: 分类
+        allowreply: 评论
+        tags: 标签
+      group:
+        title: 小组名称
+        verified: 审核
+        picture: 小组图标
+        allowadduser: 是否允许加入小组
+        introduction: 小组介绍
+        tags: 标签分类
   breadcrumbs:
     home: 首页
-    forum: 社区
+    group: 小组
+    new_topic: 发布帖子
+    recent_topics: 最新帖子
+  views:
+    pagination:
+      first: "&laquo; 第一页"
+      last: "最后页 &raquo;"
+      previous: "前一页"
+      next: "下一页"
+      truncate: "..."

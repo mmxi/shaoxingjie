@@ -1,12 +1,12 @@
 %h2 帐号管理
 
 = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :wrapper => :inline, :html => { :method => :put, :multipart => true }) do |f|
-  = f.input :name, :input_html => {:class => "input_text"}
-  = f.input :email, :input_html => {:class => "input_text"}
+  = f.input :name
+  = f.input :email
   = f.input :avatar, :label => false do
     = image_tag current_user.avatar_url(:s120)
     = image_tag current_user.avatar_url(:s48)
-    = image_tag current_user.avatar_url(:s48), :width => 24, :height => 24
-  = f.input :avatar, :input_html => {:class => "input_file"}
+    = image_tag current_user.avatar_url(:s32)
+  = f.input :avatar
   .actions
-    = f.submit :class => "submit setting"
+    = f.submit :class => "btn primary"

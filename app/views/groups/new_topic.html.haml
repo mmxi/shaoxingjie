@@ -1,0 +1,25 @@
+- content_for :js do
+  = include_kindeditor_if_needed
+  :javascript
+    $(document).ready(function($) {
+      keoption['width'] = "630px";
+      var editor; KindEditor.ready(function(K){
+        editor = K.create('#topic_body', keoption);
+      });
+    });
+  
+- content_for :breadcrumb do
+  = render_bcs
+  
+%h2= "[#{@group.title}]发布帖子"
+
+= simple_form_for @topic, :wrapper => :inline, :url => create_topic_group_path(@group) do |f|
+  = f.input :title, :input_html => {:class => "span10"}
+  = f.input :category, :collection => @group.tags_array, :prompt => "选择分类"
+  = f.input :body, :input_html => {:class => "span10", :rows => 10}, :as => :text
+  = f.input :allowreply do
+    .collection_container= f.collection_radio :allowreply, [[true, '允许'] ,[false, '不允许']], :first, :last
+  = f.input :tags, :input_html => {:class => "span7", "data-seperator" => ","}, :hint => "标签之间用英文逗号(,)隔开"
+  .actions
+    = f.submit "发布帖子", :class => "btn primary"
+    = link_to "返回小组", group_path(@group), :class => "btn"

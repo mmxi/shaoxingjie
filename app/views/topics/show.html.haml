@@ -1,1 +1,37 @@
-全哈曝
+- content_for :js do
+  = include_kindeditor_if_needed
+  :javascript
+    $(document).ready(function($) {
+      keoption['width'] = "630px";
+      var editor; KindEditor.ready(function(K){
+        editor = K.create('#reply_body', keoption);
+      });
+    });
+    
+- content_for :breadcrumb do
+  = render_bcs
+  
+%h2.topic_title= "[#{@topic.group.title}]#{@topic.title}"
+
+= link_to image_tag(@topic.user.avatar_url(:s48)), user_path(@topic.user)
+
+= @topic.created_at
+来自
+= link_to @topic.user.name, user_path(@topic.user)
+
+= raw @topic.body
+签名
+
+%h5 你的回应
+= simple_form_for @reply, :url => root_path do |f|
+  = f.input :body, :as => :text
+  .actions
+    = f.submit "加上去", :class => "btn success"
+
+- content_for :sidebar do
+  %p
+    = link_to "返回小组", group_path(@topic.group)
+  %p
+    = link_to "在本组发布帖子", new_topic_group_path(@topic.group), :class => "btn success"
+  %h4 谁收藏了这篇帖子
+  %h4 最新话题

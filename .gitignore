@@ -8,3 +8,5 @@ config/mongoid.yml
 config/config.yml
 Gemfile.lock
 .DS_Store
+uploads/
+.project

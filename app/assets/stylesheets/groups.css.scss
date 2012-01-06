@@ -1,0 +1,57 @@
+.infobox {
+  background: #f4f4ec;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.infobox img {
+  float: left;
+}
+
+.infobox .groupdesc {
+  margin-top: 5px;
+  margin-left: 58px;
+}
+
+.labels {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  .label {
+    margin-right: 5px;
+  }
+}
+
+div.group {
+  float: left;
+  width: 290px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.group .group-img {
+  float: left;
+  width: 48px;
+  text-align: center;
+}
+.group .label:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.labels .label:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.group_members .group_member {
+  float: left;
+  width: 85px;
+}
+
+.group_members .group_member {
+  .avatar, .name {
+    display: block;
+    text-align: center;
+    height: 50px;
+  }
+}

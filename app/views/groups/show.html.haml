@@ -1,0 +1,53 @@
+- content_for :breadcrumb do
+  = render_bcs
+  
+%h3= @group.title
+.infobox.clearfix
+  = image_tag @group.picture_url(:s48)
+  .groupdesc
+    %p
+      = "创建于#{@group.created_at.strftime("%Y-%m-%d")}"
+      &nbsp;&nbsp;组长
+      = link_to @group.creator.name, @group.creator
+    - if !@group.verified
+      %p= "#{@group.title}小组正在审核中"
+    - else
+      %p= @group.introduction
+      - if user_signed_in?
+        - if current_user.is_member_of?(@group) and @group.allowadduser
+          %h6
+            我是这个小组的成员
+            = link_to "退出小组", leave_group_path(@group)
+        - elsif !@group.allowadduser
+          %h6 本小组禁止加入
+        - else
+          = link_to "加入小组", join_group_path(@group), :class => "btn success pull-right"
+      - elsif !@group.allowadduser
+        %h6 本小组禁止加入
+      - else
+        = link_to "加入小组", join_group_path(@group), :class => "btn success pull-right"
+
+-if @group.verified
+  = link_to "发布帖子", new_topic_group_path(@group), :class => "btn success"
+
+.labels
+  = link_to "全部", tags_group_path(@group), :class => "label success"
+  - @group.tags_array.each do |tag|
+    = link_to tag, tag_group_path(@group, tag), :class => "label"
+
+.topics
+  = render @topics
+= paginate @topics
+
+- content_for :sidebar do
+  %h4 最新加入成员
+  .group_members.clearfix
+    - @newest_users.each do |member|
+      .group_member
+        %span.avatar
+          = image_tag member.avatar_url(:s48)
+        %span.name
+          = member.name
+
+  = link_to "浏览所有成员", group_user_group_path(@group)
+  
